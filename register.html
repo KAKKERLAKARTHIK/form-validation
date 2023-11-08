@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+.main{
+width: 100%;
+height: 100vh;
+
+background-image: linear-gradient(to right,rgb(17, 213, 213),rgb(143, 143, 243),rgb(234, 83, 196));
+
+}
+.log{
+background-color: white;
+    width:25% ;
+    height: 80vh;
+    margin-left: 37%;
+    
+}
+.input4{
+    margin-left: 37px;
+    margin-top: 8%;
+    padding: 10px;
+    width: 70%;
+    border: 0px;
+    border-bottom: 1px solid gray;
+}
+.p1{
+    font-size: 18px;
+    position: relative;
+    top: 8%;
+    left: 9%;
+}
+.input1{
+    padding: 10px;
+    width: 70%;
+    border: 0px;
+    border-bottom: 1px solid gray;
+margin-left: 37px;
+margin-top: px;
+}
+.p2{
+    font-size: 18px;
+    position: relative;
+    left: 9%;
+    top: 2%;
+}
+h1{
+    position: relative;
+    left:38% ;
+    top: 5%;
+}.sub{
+    position: relative;
+    top: 3%;
+    padding: 12px;
+    width: 76%;
+    left: 37px;
+    background-image: linear-gradient(to right,rgb(17, 213, 213),rgb(143, 143, 243),rgb(234, 83, 196));
+border: .2px;
+border-radius: 10px;
+}
+.p3{
+    margin-top: 7%;
+    font-size: 19px;
+    margin-left: 10%;
+
+}.log{
+    position: relative;
+    top: 80px;
+}
+.input2{
+
+    padding: 10px;
+    width: 70%;
+    border: 0px;
+    border-bottom: 1px solid gray;
+margin-left: 37px;
+margin-top: -20px;
+}
+.but{
+    position: relative;
+    top: 6%;
+    padding: 12px;
+    width: 76%;
+    left: 37px;
+    background-image: linear-gradient(to right,rgb(17, 213, 213),rgb(143, 143, 243),rgb(234, 83, 196));
+border: .2px;
+border-radius: 10px;
+
+}
+.p4{
+    font-size: 19px;
+    margin-top: 12%;
+    margin-left: 40%;
+}
+.error{
+    color: red;
+    margin-left: 10%;
+display: none;
+}
+    </style>
+</head>
+
+<body>
+<div class="main">
+    <div>
+        <form action="" class="log">
+            <h1>Register</h1>
+            <p class="p1">username</p>
+            <input type="text" name="username" class="input4" placeholder="enter username"><br>
+            <p class="p2">password</p>
+            <input type="password" name="password" class="input1" placeholder="enter password"><br>
+            <p class="p3">confirm password</p>
+            <input type="password" name="password" class="input2" placeholder="enter password"><br>
+            <small class="error"> enter password correct</small>
+            <input type="submit" class="sub"> 
+            <button class="but">Log in</button>
+            <p class="p4">log in with</p>
+            <span style=" font-size: 1.6em; margin-left: 26%;margin-top: 20px; color: #9e8c8c;" class="social1"> <a
+                href="https://www.facebook.com/kakkerla.karthik.9"><i
+                    class="fab fa-facebook-f"></i></a>&nbsp;&nbsp;&nbsp;
+            <a href="https://twitter.com/LavanKumar8096?t=ALeF2y-MSpAFvm6O7ryefQ&s=09"><i
+                    class="fab fa-twitter"></i></a>&nbsp;&nbsp;&nbsp;
+            <a href="https://instagram.com/karthik_kakkerla_?utm_source=qr&igshid=MzNlNGNkZWQ4Mg%3D%3D"><i
+                    class="fab fa-instagram"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://www.linkedin.com/in/adicherla-lavankumar-730b53288"><i
+                    class="fab fa-linkedin-in"></i></a></span>
+        </form>
+    </div>
+</div>
+    <script>
+ 
+let forms=document.forms
+let storing=[];
+forms[0].addEventListener("submit",(e)=>{
+    e.preventDefault()
+let username=e.target[0].value
+let password=e.target[1].value
+let cpassword=e.target[2].value
+if(username.match(/[a-z]{6,24}/)&& password.match(/[0-9]{8,14}/)&&password==cpassword ){
+storing.push({username:username,password:password})
+console.log("click");
+localStorage.setItem("storing",JSON.stringify(storing))
+alert("your registred sucessfully please log in ")
+}
+else{
+    let small=document.getElementsByTagName("small")
+    small[0].style.display="block"
+}
+
+
+})
+
+let sub=document.getElementsByTagName("button")
+sub[0].addEventListener("click",()=>{
+
+window.location.assign("./login.html")
+
+
+
+})
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

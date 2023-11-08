@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+.main{
+width: 100%;
+height: 100vh;
+
+background-image: linear-gradient(to right,rgb(17, 213, 213),rgb(143, 143, 243),rgb(234, 83, 196));
+
+}
+.log{
+background-color: white;
+    width:25% ;
+    height: 70vh;
+    margin-left: 37%;
+    
+}
+.input4{
+    margin-left: 37px;
+    margin-top: 10%;
+    padding: 10px;
+    width: 70%;
+    border: 0px;
+    border-bottom: 1px solid gray;
+}
+.p1{
+    font-size: 18px;
+    position: relative;
+    top: 10%;
+    left: 9%;
+}
+.input1{
+    padding: 10px;
+    width: 70%;
+    border: 0px;
+    border-bottom: 1px solid gray;
+margin-left: 37px;
+margin-top: 10px;
+}
+.p2{
+    font-size: 18px;
+    position: relative;
+    left: 9%;
+    top: 3%;
+}
+h1{
+    position: relative;
+    left:40% ;
+    top: 5%;
+}.sub{
+    position: relative;
+    top: 8%;
+    padding: 12px;
+    width: 76%;
+    left: 37px;
+    background-image: linear-gradient(to right,rgb(17, 213, 213),rgb(143, 143, 243),rgb(234, 83, 196));
+border: .2px;
+border-radius: 10px;
+}
+.p3{
+    margin-top: 18%;
+    font-size: 19px;
+    margin-left: 40%;
+}.log{
+    position: relative;
+    top: 100px;
+}
+
+    </style>
+</head>
+
+<body>
+<div class="main">
+    <div>
+        <form action="" class="log">
+            <h1>Log in</h1>
+            <p class="p1">username</p>
+            <input type="text" name="username" class="input4" placeholder="enter username"><br>
+            <p class="p2">password</p>
+            <input type="text" name="password" class="input1" placeholder="enter password"><br>
+            
+            <input type="submit" class="sub"> 
+            <p class="p3">log in with</p>
+            <span style=" font-size: 1.6em; margin-left: 26%;margin-top: 20px; color: #9e8c8c;" class="social1"> <a
+                href="https://www.facebook.com/kakkerla.karthik.9"><i
+                    class="fab fa-facebook-f"></i></a>&nbsp;&nbsp;&nbsp;
+            <a href="https://twitter.com/LavanKumar8096?t=ALeF2y-MSpAFvm6O7ryefQ&s=09"><i
+                    class="fab fa-twitter"></i></a>&nbsp;&nbsp;&nbsp;
+            <a href="https://instagram.com/karthik_kakkerla_?utm_source=qr&igshid=MzNlNGNkZWQ4Mg%3D%3D"><i
+                    class="fab fa-instagram"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://www.linkedin.com/in/adicherla-lavankumar-730b53288"><i
+                    class="fab fa-linkedin-in"></i></a></span>
+        </form>
+    </div>
+</div>
+    <script>
+
+let form = document.forms
+form[0].addEventListener("submit",(e)=>{
+e.preventDefault()
+let username=e.target[0].value
+let password=e.target[1].value
+let details=JSON.parse(localStorage.getItem("storing"))
+let check=details.find((a)=>{
+    return a.username==username && a.password==password
+})
+if(check){
+    window.location.assign("./enter.html")
+}else{
+    alert("not valid")
+}
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

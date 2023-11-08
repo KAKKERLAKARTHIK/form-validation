@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section {
+            width: 100%;
+            height: 100vh;
+            background-image: linear-gradient(rgb(236, 230, 230), rgb(162, 230, 230));
+
+            display: flex;
+        }
+
+        .input {
+
+            width: 50%;
+            border-radius: 20px;
+            padding: 20px;
+            opacity: .4;
+            margin-left: 19%;
+        }
+
+        h1 {
+            display: inline-block;
+        }
+
+        .input1 {
+
+            width: 50%;
+            border-radius: 20px;
+            padding: 20px;
+            opacity: .4;
+            margin-left: 19%;
+        }
+
+        .input3 {
+            margin-top: 20%;
+            padding: 10px;
+            width: 99px;
+            border-radius: 10px;
+            position: relative;
+            left: 76%;
+        }
+
+        .input4 {
+            width: 50%;
+            border-radius: 20px;
+            padding: 20px;
+            opacity: .4;
+            margin-left: 2%;
+
+        }
+
+        h2 {
+            margin-left: 28%;
+            font-size: 2em;
+        }
+
+        .input2 {
+            width: 50%;
+            border-radius: 20px;
+            padding: 20px;
+            opacity: .4;
+            margin-left: 2%;
+        }
+
+        form {
+            width: 40%;
+            height: 70vh;
+
+        }
+
+        #display {
+            width: 400px;
+            margin-left: 14%;
+            height: 500px;
+
+        }
+
+        #display button {
+            border-radius: 10px;
+            padding: 10px;
+
+        }
+
+        #small {
+            position: relative;
+        
+            left: 38%;
+            font-size: 1rem;
+            color: red;
+            display: none;
+        }
+
+        #small1 {
+            font-size: 1rem;
+            color: red;
+            margin-left: 38%;
+            display: none;
+        }
+        .details{
+            border: 2px solid;
+            margin-top: 10px;
+            background-image: linear-gradient(rgb(97, 93, 97), rgb(164, 157, 157));
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+
+
+
+
+
+        <form action="">
+            <h2>Registrion form</h2>
+
+
+
+
+            <h1>username:</h1>
+            <!-- <label for="username" type="text" id="same">username</label> -->
+
+            <input type="text" name="username" class="input" id="same"><br>
+
+            <h1> confirom username:</h1>
+
+            <input type="text" name="username" class="input4">
+            <small id="small1"> inccorecct username</small><br>
+            <h1>password:</h1>
+            <input type="text" name="password" class="input1"><br>
+            <h1>confirom password:</h1>
+            <input type="password" name="password" class="input2">
+            <small id="small"> inccorecct password</small>
+            <input type="submit" class="input3">
+
+
+            <div id="main">
+
+
+
+            </div>
+
+
+
+
+        </form>
+        <div id="display" style="overflow: scroll;">
+
+
+
+
+
+        </div>
+
+    </section>
+
+
+
+ 
+    <script>
+        let forms = document.forms
+        //let arr=[]
+        let username12 = [];
+        let small = document.getElementsByTagName("small")
+        let div1 = document.getElementById("main")
+        let btn2=document.createElement("button")
+
+
+
+        btn2.innerText="log"
+
+btn2.addEventListener("click",()=>{
+
+
+    window.location.assign("./login.html")
+})
+
+
+        forms[0].addEventListener("submit", (e) => {
+            e.preventDefault()
+            let ul = document.createElement("div")
+            let li1 = document.createElement("h1")
+            let li2 = document.createElement("h1")
+            let username = e.target[0].value
+            let confiromu = e.target[1].value
+
+            let password = e.target[2].value
+            let confiromp = e.target[3].value
+
+            if ((username.length > 8) && (username[0] == username[0].toUpperCase()) && ((password.length > 8) && (password.length < 14)) && ((password.length == confiromp.length) && (username.length == confiromu.length))) {
+                username12.push({ username: username, password: password })
+                localStorage.setItem("sroting", JSON.stringify(username12))
+
+              
+                alert("your successfully registerd")
+ 
+            }
+            else if (username.length != confiromu.length) {
+              small[0].style.display="block"
+            }
+            else if(password.length != confiromp.length){
+                small[1].style.display="block"
+            }
+           
+
+    e.target[0].value=""
+    e.target[1].value=""
+    e.target[2].value=""
+    e.target[3].value=""
+        })
+       
+        let divv = document.getElementById("display")
+        let btn = document.createElement("button")
+        btn.innerText = "get registred user details"
+        divv.appendChild(btn)
+
+        divv.appendChild(btn2)
+
+        btn.addEventListener("click", () => {
+            let store = JSON.parse(localStorage.getItem("sroting"))
+            store.map((val, ind, arr) => {
+                let diiv = document.createElement("div")
+                diiv.setAttribute("class","details")
+                diiv.innerHTML = `  <div><h1>user no:-${ind+1}</h1>
+                    <h1>username:-${val.username}</h1><br>
+                    <h1>password:-${val.password}</h1> </div>`
+
+
+
+                divv.appendChild(diiv)
+            })
+         })
+       
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html
